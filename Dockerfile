@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM scratch
 
 ADD template-etc/nginx/conf.d/default.template /template-etc/nginx/conf.d/default.template
 ADD true /true
