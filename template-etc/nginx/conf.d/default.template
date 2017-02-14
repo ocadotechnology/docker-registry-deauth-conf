@@ -1,0 +1,17 @@
+# https://issues.sonatype.org/browse/NEXUS-10813?focusedCommentId=382997&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-382997
+server {
+    listen ${LISTEN_PORT};
+
+    set $registry ${UPSTREAM_REGISTRY};
+
+    set $authorization $http_authorization;
+    
+    if ($authorization = '') {
+       set $authorization 'Basic YW5vbnltb3VzOmFub255bW91cw=='; # anonymous:anonymous
+    }
+    
+    location / {
+        proxy_set_header Authorization $authorization;
+        proxy_pass $registry;
+    }
+}
