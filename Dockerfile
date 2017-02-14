@@ -4,4 +4,4 @@ ADD template-etc/nginx/conf.d/default.template /template-etc/nginx/conf.d/defaul
 ADD true /true
 VOLUME /template-etc/nginx/conf.d
 
-CMD /true
+CMD ["/true"]
