@@ -2,8 +2,6 @@
 server {
     listen __LISTEN_PORT__;
 
-    set $registry __UPSTREAM_REGISTRY__;
-
     set $authorization $http_authorization;
     
     if ($authorization = '') {
@@ -12,6 +10,6 @@ server {
     
     location / {
         proxy_set_header Authorization $authorization;
-        proxy_pass $registry;
+        proxy_pass __UPSTREAM_REGISTRY__;
     }
 }
