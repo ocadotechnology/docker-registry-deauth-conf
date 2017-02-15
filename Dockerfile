@@ -1,7 +1,7 @@
 FROM scratch
 
-ADD template-etc/nginx/conf.d/default.template /template-etc/nginx/conf.d/default.template
-ADD true /true
-VOLUME /template-etc/nginx/conf.d
+ADD true.elf /true
+ADD etc/nginx/conf.d/default.template /etc/nginx/conf.d/default.template
+VOLUME /etc/nginx/conf.d
 
 CMD ["/true"]

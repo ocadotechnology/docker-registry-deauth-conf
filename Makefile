@@ -1,2 +1,2 @@
-true: true.c
+true.elf: true.c
 	$(CC) -s -static -o $@ $<
